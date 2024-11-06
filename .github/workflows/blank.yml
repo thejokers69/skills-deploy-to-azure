@@ -7,5 +7,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     if: contains(github.event.pull_request.labels.*.name, 'stage')
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Run a message
+        run: echo "Staging label detected. Running staging job..."
